@@ -1,0 +1,2 @@
+# HammerspoonConfig
+My Hammerspoon configuration
