@@ -107,9 +107,11 @@ end
 local function doQuit()
     -- don't let Finder, Fantastical or Things quit
     local app = hs.application.frontmostApplication()
-    if (app:title() ~= "Finder") and
-       (app:title() ~= "Fantastical") and
-       (app:title() ~= "Things")  then
+    if (app:title() == "Finder") or
+       (app:title() == "Fantastical") or
+       (app:title() == "Things")  then
+        hs.window.frontmostWindow():close()
+    else
         app:kill()
     end
 end
