@@ -8,11 +8,15 @@ positions = {
 
   left25 = {x=0, y=0, w=0.25, h=1},
   left34 = {x=0, y=0, w=0.34, h=1},
+  left40 = {x=0, y=0, w=0.40, h=1},
   left50 = hs.layout.left50,
+  left60 = {x=0, y=0, w=0.60, h=1},
   left66 = {x=0, y=0, w=0.66, h=1},
 
   right34 = {x=0.66, y=0, w=0.34, h=1},
+  right40 = {x=0.60, y=0, w=0.40, h=1},
   right50 = hs.layout.right50,
+  right60 = {x=0.40, y=0, w=0.60, h=1},
   right66 = {x=0.34, y=0, w=0.66, h=1},
   right75 = {x=0.25, y=0, w=0.75, h=1},
 
@@ -30,12 +34,21 @@ function bindKey(key, fn)
 end
 
 bindKey('1', function()
-  hs.application.open("Agenda", 5, true)
-  hs.application.open("Google Chrome", 5, true)
+  hs.application.open("Agenda", 0, true)
+  hs.application.open("Google Chrome", 0, true)
   hs.layout.apply({
-    {"Agenda", nil, screen, positions.left25,         nil, nil},
-    {"Google Chrome",    nil, screen, positions.right75, nil, nil},
+    {"Agenda",        nil, screen, positions.left34,  nil, nil},
+    {"Google Chrome", nil, screen, positions.right66, nil, nil},
   })
+end)
+
+bindKey('2', function()
+hs.application.open("Books", 0, true)
+hs.application.open("Xcode-beta", 0, true)
+hs.layout.apply({
+{"Books", nil, screen, positions.left40, nil, nil},
+{"Xcode", nil, screen, positions.right60,  nil, nil},
+})
 end)
 
 -- Eisu
